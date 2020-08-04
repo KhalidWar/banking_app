@@ -1,4 +1,4 @@
-# Banking App - Demo
+# Banking App - Demo [UNDER CONSTRUCTION]
 
 A demo of banking app. This app is built using [Flutter](https://flutter.dev) framework.
 
