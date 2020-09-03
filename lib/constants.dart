@@ -8,3 +8,5 @@ const kScaffoldBackgroundColor = Color(0xfff0f0f0);
 //const kScaffoldBackgroundColor = Color(0xff800080);
 
 const kAccentColor = Color(0XFF008000);
+
+const kCashColor = Color(0xFF00C244);

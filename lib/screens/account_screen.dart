@@ -31,6 +31,15 @@ class _AccountScreenState extends State<AccountScreen> {
     return Scaffold(
       backgroundColor: kScaffoldBackgroundColor,
       appBar: buildAppBar(context),
+      floatingActionButton: FloatingActionButton(
+        //todo make FAB disappear when scrolling down and re-appear on up scroll
+        backgroundColor: kCashColor,
+        child: Icon(
+          Icons.attach_money,
+          size: 40,
+        ),
+        onPressed: () {},
+      ),
       body: Container(
         width: size.width,
         height: size.height,
@@ -38,7 +47,7 @@ class _AccountScreenState extends State<AccountScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              height: size.height * 0.3,
+              height: size.height * 0.2,
               width: double.infinity,
               padding: EdgeInsets.only(
                 left: size.width * 0.07,
@@ -56,7 +65,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 children: [
                   AccountDetailsCard(widget: widget),
                   Positioned(
-                    top: size.height * 0.278,
+                    top: size.height / 5.7,
                     width: size.width * 0.85,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -65,7 +74,7 @@ class _AccountScreenState extends State<AccountScreen> {
                             //todo use receipt long from icons folder
                             child: SvgPicture.asset(
                                 'assets/icons/receipt_long.svg'),
-                            label: 'Statements',
+                            label: 'Statement',
                             onPress: () {}),
                         SearchStatementWidget(
                             child: Icon(Icons.search),
@@ -79,14 +88,16 @@ class _AccountScreenState extends State<AccountScreen> {
                 ],
               ),
             ),
-            SizedBox(height: size.height * 0.0336),
+            SizedBox(height: size.height / 25),
             Container(
-              height: size.height * 0.57,
+              height: size.height * 0.66,
               child: ListView(
                 shrinkWrap: true,
                 children: [
                   PendingPostedWidget(
-                      label: 'Balance', showAllTransactions: false),
+                    label: 'Balance',
+                    showAllTransactions: false,
+                  ),
                   Container(
                     width: size.width * 0.85,
                     height: size.height * 0.05,
@@ -106,6 +117,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       ],
                     ),
                   ),
+                  SizedBox(height: 10),
                   PendingPostedWidget(
                       label: 'Pending', showAllTransactions: false),
                   ListView.builder(

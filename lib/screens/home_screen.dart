@@ -2,7 +2,6 @@ import 'package:banking/dummy_data/accounts_list.dart';
 import 'package:banking/widgets/accounts_card.dart';
 import 'package:banking/widgets/profile_icon_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../constants.dart';
 import 'account_screen.dart';
@@ -170,13 +169,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   FloatingActionButton buildFloatingActionButton() {
     return FloatingActionButton(
-        //todo make FAB disappear when scrolling down and re-appear on up scroll
-        backgroundColor: kStackBackgroundColor,
-        child: SvgPicture.asset(
-          'assets/icons/contactless.svg',
-          color: Colors.black,
-          height: 40,
-        ),
-        onPressed: () {});
+      //todo make FAB disappear when scrolling down and re-appear on up scroll
+      backgroundColor: kCashColor,
+      child: Icon(
+        Icons.attach_money,
+        size: 40,
+      ),
+      onPressed: () {},
+    );
   }
 }
