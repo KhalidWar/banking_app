@@ -1,4 +1,4 @@
-import 'package:banking/screens/home_screen.dart';
+import 'package:banking/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
       title: 'Banking',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-//        accentColor: kAccentColor,
-        primarySwatch: Colors.blue,
+//        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        fontFamily: 'Nunito',
       ),
-      home: HomeScreen(),
+      home: LoadingScreen(),
     );
   }
 }

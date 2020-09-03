@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: kScaffoldBackgroundColor,
+      backgroundColor: kStackBackgroundColor,
       appBar: buildAppBar(context),
       floatingActionButton: buildFloatingActionButton(),
       body: Container(
@@ -154,13 +154,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return AppBar(
       backgroundColor: kStackBackgroundColor,
       elevation: 0,
-      // todo try without a title
       title: Text(kAppTitle,
           style: Theme.of(context)
               .textTheme
               .headline6
               .copyWith(color: Colors.white)),
       centerTitle: true,
+      //todo fix home screen stacking on top of login screen AKA remove backbutton
       leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
       actions: [
         ProfileIconButton(),
@@ -170,8 +170,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   FloatingActionButton buildFloatingActionButton() {
     return FloatingActionButton(
-        //todo make it disappear when scrolling down and re-appear on up scroll
-        backgroundColor: Colors.white,
+        //todo make FAB disappear when scrolling down and re-appear on up scroll
+        backgroundColor: kStackBackgroundColor,
         child: SvgPicture.asset(
           'assets/icons/contactless.svg',
           color: Colors.black,

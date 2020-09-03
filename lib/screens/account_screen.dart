@@ -28,7 +28,6 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
     return Scaffold(
       backgroundColor: kScaffoldBackgroundColor,
       appBar: buildAppBar(context),
@@ -168,19 +167,3 @@ class _AccountScreenState extends State<AccountScreen> {
         ]);
   }
 }
-
-//   bottomNavigationBar: Row(
-//        mainAxisAlignment: MainAxisAlignment.spaceAround,
-//        children: [
-//          BotNavBarButton(
-//            label: 'Send',
-//            backgroundColor: Theme.of(context).primaryColor,
-//            onPress: () {},
-//          ),
-//          BotNavBarButton(
-//            label: 'Transfer',
-//            backgroundColor: Theme.of(context).primaryColor,
-//            onPress: () {},
-//          ),
-//        ],
-//      ),
