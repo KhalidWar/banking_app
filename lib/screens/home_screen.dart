@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: kStackBackgroundColor,
+      backgroundColor: kPrimaryColor,
       appBar: buildAppBar(context),
       floatingActionButton: buildFloatingActionButton(),
       body: Container(
@@ -37,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
               height: size.height * 0.3,
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: kStackBackgroundColor,
+                  color: kPrimaryColor,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(35),
                     bottomRight: Radius.circular(35),
@@ -151,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-      backgroundColor: kStackBackgroundColor,
+      backgroundColor: kPrimaryColor,
       elevation: 0,
       title: Text(kAppTitle,
           style: Theme.of(context)

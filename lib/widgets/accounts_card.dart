@@ -1,4 +1,4 @@
-import 'package:banking/dummy_data/accounts_list.dart';
+import 'package:banking/constants.dart';
 import 'package:flutter/material.dart';
 
 class AccountsCard extends StatelessWidget {
@@ -19,7 +19,6 @@ class AccountsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isCredit = accountsList[index].isCredit;
     return GestureDetector(
       onTap: onPress,
       child: Card(
@@ -48,8 +47,10 @@ class AccountsCard extends StatelessWidget {
                 alignment: Alignment.bottomRight,
                 child: Text(
                   '\$${balance.toStringAsFixed(1)}',
-                  style: Theme.of(context).textTheme.headline4.copyWith(
-                      color: Colors.green[600], fontWeight: FontWeight.bold),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline4
+                      .copyWith(color: kCashColor, fontWeight: FontWeight.bold),
                 ),
               ),
             ],

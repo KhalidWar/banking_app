@@ -1,15 +1,21 @@
 import 'package:banking/constants.dart';
 import 'package:banking/screens/home_screen.dart';
-import 'package:banking/widgets/username_password_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoadingScreen extends StatelessWidget {
+class LoadingScreen extends StatefulWidget {
+  @override
+  _LoadingScreenState createState() => _LoadingScreenState();
+}
+
+class _LoadingScreenState extends State<LoadingScreen> {
+  bool isBiometric = false;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: kStackBackgroundColor,
+      backgroundColor: kPrimaryColor,
       body: Center(
         child: SingleChildScrollView(
           child: Container(
@@ -21,38 +27,20 @@ class LoadingScreen extends StatelessWidget {
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  height: size.height * 0.2,
-                  width: size.width * 0.4,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
-                  ),
-                  child: Text(
-                    'Logo Here',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 50,
-                    ),
-                  ),
+                Icon(
+                  Icons.account_balance,
+                  size: size.height * 0.2,
                 ),
-                SizedBox(height: size.height * 0.1),
-                Text(
-                  'Login',
-                  style: GoogleFonts.nunito(
-                    fontSize: 50,
-                    color: kStackBackgroundColor,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(height: size.height * 0.02),
+                SizedBox(height: size.height / 12),
+                Greeting(),
                 UsernamePasswordFields(label: 'Username', isPassword: false),
                 SizedBox(height: size.height * 0.005),
                 UsernamePasswordFields(label: 'Password', isPassword: true),
-                SizedBox(height: size.height * 0.03),
+                EnableFingerprint(),
                 FlatButton(
-                    color: kStackBackgroundColor,
+                    color: kPrimaryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(16)),
                     ),
@@ -73,7 +61,7 @@ class LoadingScreen extends StatelessWidget {
                         return HomeScreen();
                       }));
                     }),
-                SizedBox(height: size.height * 0.005),
+                SizedBox(height: size.height * 0.01),
                 GestureDetector(
                   onTap: () {},
                   child: Text(
@@ -88,6 +76,81 @@ class LoadingScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Greeting extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text('Welcome Back, '),
+        Text(
+          'Khalid',
+          style: GoogleFonts.nunito(
+            fontSize: 50,
+            color: kPrimaryColor,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class UsernamePasswordFields extends StatelessWidget {
+  const UsernamePasswordFields({
+    Key key,
+    this.label,
+    this.isPassword,
+  }) : super(key: key);
+
+  final String label;
+  final bool isPassword;
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      width: size.width * 0.7,
+      height: size.height * 0.05,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(16)),
+        border: Border.all(
+            color: kPrimaryColor, style: BorderStyle.solid, width: 1.5),
+      ),
+      child: TextField(
+        obscureText: isPassword ? true : false,
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(horizontal: 20),
+          hintText: label,
+          hintStyle: TextStyle(fontSize: 20),
+          enabledBorder: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          border: InputBorder.none,
+        ),
+      ),
+    );
+  }
+}
+
+class EnableFingerprint extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(left: MediaQuery.of(context).size.width / 5),
+      child: Row(
+        children: [
+          Checkbox(
+            value: false,
+            onChanged: (isBiometric) {},
+          ),
+          Text('Enable Fingerprint'),
+        ],
       ),
     );
   }

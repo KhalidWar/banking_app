@@ -1,3 +1,4 @@
+import 'package:banking/constants.dart';
 import 'package:banking/dummy_data/accounts_list.dart';
 import 'package:banking/screens/account_screen.dart';
 import 'package:flutter/material.dart';
@@ -50,8 +51,10 @@ class AccountDetailsCard extends StatelessWidget {
               bottom: 0,
               child: Text(
                 '\$${widget.balance}',
-                style: Theme.of(context).textTheme.headline3.copyWith(
-                    color: Colors.green[600], fontWeight: FontWeight.bold),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline3
+                    .copyWith(color: kCashColor, fontWeight: FontWeight.bold),
               ),
             ),
           ],

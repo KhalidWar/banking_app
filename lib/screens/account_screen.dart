@@ -29,7 +29,7 @@ class _AccountScreenState extends State<AccountScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: kScaffoldBackgroundColor,
+      backgroundColor: kSecondaryColor,
       appBar: buildAppBar(context),
       floatingActionButton: FloatingActionButton(
         //todo make FAB disappear when scrolling down and re-appear on up scroll
@@ -55,7 +55,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 bottom: size.height * 0.04,
               ),
               decoration: BoxDecoration(
-                color: kStackBackgroundColor,
+                color: kPrimaryColor,
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(35),
                     bottomRight: Radius.circular(35)),
@@ -168,7 +168,7 @@ class _AccountScreenState extends State<AccountScreen> {
         elevation: 0,
         title: Text('${widget.accountType}'),
         centerTitle: true,
-        backgroundColor: kStackBackgroundColor,
+        backgroundColor: kPrimaryColor,
         leading: IconButton(
             icon: Icon(Icons.arrow_back_ios),
             onPressed: () {

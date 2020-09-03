@@ -21,7 +21,7 @@ class UsernamePasswordFields extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(16)),
         border: Border.all(
-            color: kStackBackgroundColor, style: BorderStyle.solid, width: 1.5),
+            color: kPrimaryColor, style: BorderStyle.solid, width: 1.5),
       ),
       child: TextField(
         obscureText: isPassword ? true : false,
