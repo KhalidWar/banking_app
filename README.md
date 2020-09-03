@@ -1,45 +1,31 @@
-# Banking App - Demo [UNDER CONSTRUCTION]
-
-A demo of banking app. This app is built using [Flutter](https://flutter.dev) framework.
+# Banking App [UNDER CONSTRUCTION]
+A beautifully designed banking app with login screen, home screen with total balance and accounts overview, and detailed individual account with pending and posted transactions. This app is built using [Flutter](https://flutter.dev) framework.
 
 ## Screenshots
-<img src="LINK_TO_SCREENSHOT" width="150"> 
-
-
-## Features
-- 
-- ...and much more
-
-### Upcoming Features
-- 
-
-
+<img src="LINK_TO_SCREENSHOT" width="150">
 
 ## Packages used
 - [Font Awesome Icons](https://pub.dev/packages/font_awesome_flutter)
+- [Google Fonts](https://pub.dev/packages/google_fonts)
+- [Flutter SVG](https://pub.dev/packages/flutter_svg)
 - [Animations](https://pub.dev/packages/animations)
 
 
 ## Installation
-By either sideloading attacked [APK file](https://github.com/KhalidWar/banking/releases) onto your android device or building project from source following steps below.
+Install by either sideloading attacked [APK file](https://github.com/KhalidWar/banking_app/releases) on your android device or by building project from source following steps below.
 
 ### Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Check out [Flutter's official guide](https://flutter.dev/docs/get-started/install) to installing and running flutter
 
 ### Prerequisites
-```
-IDE (Android Studio or VSC)
-Dart/Flutter SDK and plugins
-Emulator or physical device
-```
+- Download IDE either [Android Studio](https://developer.android.com/studio) or [VSC](https://code.visualstudio.com/)
+- Install Flutter SDK and Dart plugin
+- Emulator or physical device
 
-A few resources to get you started:
-- [Flutter's official guide to get up and running](https://flutter.dev/docs/get-started/install)
+### Steps
+- Clone this repo to your machine: `https://github.com/KhalidWar/banking_app.git`
+- Run on Emulator or physical device
+- All set!
 
-Then clone this repo to your machine:
-
-`https://github.com/KhalidWar/banking.git`
-
-Run app on Emulator or physical device.
-
-**All set!**
+## License
+This project is licensed under [MIT Licnese](https://github.com/KhalidWar/banking_app/blob/master/LICENSE).
