@@ -1,6 +1,8 @@
 import 'package:banking/dummy_data/accounts_list.dart';
 import 'package:banking/widgets/accounts_card.dart';
+import 'package:banking/widgets/contactless_payment.dart';
 import 'package:banking/widgets/profile_icon_button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -139,7 +141,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                   ),
-                  //todo add contact buttons like chat or phone customer service
                 ],
               ),
             ),
@@ -169,13 +170,23 @@ class _HomeScreenState extends State<HomeScreen> {
 
   FloatingActionButton buildFloatingActionButton() {
     return FloatingActionButton(
-      //todo make FAB disappear when scrolling down and re-appear on up scroll
-      backgroundColor: kCashColor,
-      child: Icon(
-        Icons.attach_money,
-        size: 40,
-      ),
-      onPressed: () {},
+      //todo hide FAB on scroll
+      //todo fix FAB background and icon color mismatch
+      backgroundColor: Colors.white,
+      child: Icon(Icons.contactless, color: kCashColor, size: 55),
+      onPressed: () {
+        showModalBottomSheet(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(20),
+                topLeft: Radius.circular(20),
+              ),
+            ),
+            context: context,
+            builder: (context) {
+              return ContactlessPayment();
+            });
+      },
     );
   }
 }

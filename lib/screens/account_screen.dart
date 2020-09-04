@@ -2,7 +2,6 @@ import 'package:banking/constants.dart';
 import 'package:banking/dummy_data/accounts_list.dart';
 import 'package:banking/widgets/account_details_card.dart';
 import 'package:banking/widgets/pending_posted_widget.dart';
-import 'package:banking/widgets/profile_icon_button.dart';
 import 'package:banking/widgets/statement_search_widget.dart';
 import 'package:banking/widgets/transaction_widget.dart';
 import 'package:flutter/material.dart';
@@ -163,17 +162,15 @@ class _AccountScreenState extends State<AccountScreen> {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-        elevation: 0,
-        title: Text('${widget.accountType}'),
-        centerTitle: true,
-        backgroundColor: kPrimaryColor,
-        leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
-            onPressed: () {
-              Navigator.pop(context);
-            }),
-        actions: [
-          ProfileIconButton(),
-        ]);
+      elevation: 0,
+      title: Text('${widget.accountType}'),
+      centerTitle: true,
+      backgroundColor: kPrimaryColor,
+      leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            Navigator.pop(context);
+          }),
+    );
   }
 }
