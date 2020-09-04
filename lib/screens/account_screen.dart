@@ -31,15 +31,7 @@ class _AccountScreenState extends State<AccountScreen> {
     return Scaffold(
       backgroundColor: kSecondaryColor,
       appBar: buildAppBar(context),
-      floatingActionButton: FloatingActionButton(
-        //todo make FAB disappear when scrolling down and re-appear on up scroll
-        backgroundColor: kCashColor,
-        child: Icon(
-          Icons.attach_money,
-          size: 40,
-        ),
-        onPressed: () {},
-      ),
+      floatingActionButton: buildFloatingActionButton(),
       body: Column(
         children: [
           //todo hide search, statement, and FAB on scroll
@@ -154,6 +146,18 @@ class _AccountScreenState extends State<AccountScreen> {
           )
         ],
       ),
+    );
+  }
+
+  FloatingActionButton buildFloatingActionButton() {
+    return FloatingActionButton(
+      //todo hide FAB on scroll
+      backgroundColor: kCashColor,
+      child: Icon(
+        Icons.attach_money,
+        size: 40,
+      ),
+      onPressed: () {},
     );
   }
 
