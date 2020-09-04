@@ -5,6 +5,7 @@ import 'package:banking/widgets/pending_posted_widget.dart';
 import 'package:banking/widgets/statement_search_widget.dart';
 import 'package:banking/widgets/transaction_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AccountScreen extends StatefulWidget {
@@ -24,16 +25,59 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
+  bool _show = true;
+
+  ScrollController _scrollController = ScrollController();
+
+  void showFAB() {
+    setState(() {
+      _show = true;
+    });
+  }
+
+  void hideFAB() {
+    setState(() {
+      _show = false;
+    });
+  }
+
+  void handleScroll() async {
+    _scrollController.addListener(() {
+      if (_scrollController.position.userScrollDirection ==
+          ScrollDirection.reverse) {
+        hideFAB();
+      }
+      if (_scrollController.position.userScrollDirection ==
+          ScrollDirection.forward) {
+        showFAB();
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    handleScroll();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _scrollController.removeListener(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: kSecondaryColor,
       appBar: buildAppBar(context),
-      floatingActionButton: buildFloatingActionButton(),
+      floatingActionButton: Visibility(
+        visible: _show,
+        child: buildFloatingActionButton(),
+      ),
       body: Column(
         children: [
-          //todo hide search, statement, and FAB on scroll
           Container(
             height: size.height * 0.2,
             width: double.infinity,
@@ -79,6 +123,7 @@ class _AccountScreenState extends State<AccountScreen> {
           Container(
             height: size.height * 0.66,
             child: ListView(
+              controller: _scrollController,
               shrinkWrap: true,
               children: [
                 PendingPostedWidget(

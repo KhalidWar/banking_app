@@ -4,6 +4,7 @@ import 'package:banking/widgets/contactless_payment.dart';
 import 'package:banking/widgets/profile_icon_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import '../constants.dart';
 import 'account_screen.dart';
@@ -14,10 +15,45 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  double totalBalance() {
-    //todo use for loop to get all accounts' balances.
-    var balance = accountsList[0].balance;
-    return balance;
+  bool _show = true;
+
+  ScrollController _scrollController = ScrollController();
+
+  void showFAB() {
+    setState(() {
+      _show = true;
+    });
+  }
+
+  void hideFAB() {
+    setState(() {
+      _show = false;
+    });
+  }
+
+  void handleScroll() async {
+    _scrollController.addListener(() {
+      if (_scrollController.position.userScrollDirection ==
+          ScrollDirection.reverse) {
+        hideFAB();
+      }
+      if (_scrollController.position.userScrollDirection ==
+          ScrollDirection.forward) {
+        showFAB();
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    handleScroll();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _scrollController.removeListener(() {});
   }
 
   @override
@@ -26,7 +62,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: kPrimaryColor,
       appBar: buildAppBar(context),
-      floatingActionButton: buildFloatingActionButton(),
+      floatingActionButton: Visibility(
+        visible: _show,
+        child: buildFloatingActionButton(),
+      ),
       body: Container(
         width: double.infinity,
         height: size.height * 1,
@@ -115,6 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Expanded(
                     child: ListView.builder(
+                      controller: _scrollController,
                       shrinkWrap: true,
                       itemCount: accountsList.length,
                       itemBuilder: (context, index) {
@@ -150,27 +190,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  AppBar buildAppBar(BuildContext context) {
-    return AppBar(
-      backgroundColor: kPrimaryColor,
-      elevation: 0,
-      title: Text(kAppTitle,
-          style: Theme.of(context)
-              .textTheme
-              .headline6
-              .copyWith(color: Colors.white)),
-      centerTitle: true,
-      //todo fix home screen stacking on top of login screen AKA remove backbutton
-      leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
-      actions: [
-        ProfileIconButton(),
-      ],
-    );
-  }
-
   FloatingActionButton buildFloatingActionButton() {
     return FloatingActionButton(
-      //todo hide FAB on scroll
       //todo fix FAB background and icon color mismatch
       backgroundColor: Colors.white,
       child: Icon(Icons.contactless, color: kCashColor, size: 55),
@@ -187,6 +208,24 @@ class _HomeScreenState extends State<HomeScreen> {
               return ContactlessPayment();
             });
       },
+    );
+  }
+
+  AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+      backgroundColor: kPrimaryColor,
+      elevation: 0,
+      title: Text(kAppTitle,
+          style: Theme.of(context)
+              .textTheme
+              .headline6
+              .copyWith(color: Colors.white)),
+      centerTitle: true,
+      //todo fix home screen stacking on top of login screen AKA remove backButton
+      leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
+      actions: [
+        ProfileIconButton(),
+      ],
     );
   }
 }
