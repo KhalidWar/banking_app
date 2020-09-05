@@ -195,7 +195,6 @@ class _AccountScreenState extends State<AccountScreen> {
 
   FloatingActionButton buildFloatingActionButton() {
     return FloatingActionButton(
-      //todo hide FAB on scroll
       backgroundColor: kCashColor,
       child: Icon(
         Icons.attach_money,
