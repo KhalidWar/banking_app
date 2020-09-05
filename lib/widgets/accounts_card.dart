@@ -12,7 +12,7 @@ class AccountsCard extends StatelessWidget {
   }) : super(key: key);
 
   final String accountType;
-  final double balance;
+  final String balance;
   final int acctNumber;
   final int index;
   final Function onPress;
@@ -46,7 +46,7 @@ class AccountsCard extends StatelessWidget {
               Align(
                 alignment: Alignment.bottomRight,
                 child: Text(
-                  '\$${balance.toStringAsFixed(1)}',
+                  '\$$balance',
                   style: Theme.of(context)
                       .textTheme
                       .headline4

@@ -34,9 +34,12 @@ class AccountDetailsCard extends StatelessWidget {
             ),
             isCredit
                 ? Positioned(
-                    top: 5,
+                    top: -10,
                     right: 0,
-                    child: SvgPicture.asset('lib/dummy_data/icons/visa.svg'),
+                    child: SvgPicture.asset(
+                      'lib/dummy_data/icons/visa.svg',
+                      width: size.width * 0.15,
+                    ),
                   )
                 : Container(),
             Positioned(
@@ -48,7 +51,7 @@ class AccountDetailsCard extends StatelessWidget {
             ),
             Positioned(
               right: 0,
-              bottom: 0,
+              bottom: -9,
               child: Text(
                 '\$${widget.balance}',
                 style: Theme.of(context)

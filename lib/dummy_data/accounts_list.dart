@@ -4,15 +4,13 @@ class Account {
       this.acctNumber,
       this.balance,
       this.isCredit,
-//      this.rewardsPoints,
       this.pendingTransaction,
       this.postedTransaction});
 
   final String accountType;
-  final double balance;
+  final String balance;
   final int acctNumber;
   final bool isCredit;
-//  final int rewardsPoints;
   final List<Transactions> pendingTransaction;
   final List<Transactions> postedTransaction;
 }
@@ -24,16 +22,11 @@ class Transactions {
   final double price;
 }
 
-//class RewardsPoints {
-//  RewardsPoints({this.points});
-//  final int points;
-//}
-
 List accountsList = [
   Account(
     accountType: 'Checking Account',
     acctNumber: 5187,
-    balance: 8763.7,
+    balance: '8,763.7',
     isCredit: false,
     pendingTransaction: pendingTransactionsList,
     postedTransaction: postedTransactionsList,
@@ -41,23 +34,23 @@ List accountsList = [
   Account(
     accountType: 'Savings Account',
     acctNumber: 2143,
-    balance: 14629.9,
+    balance: '14,629.9',
     isCredit: false,
     pendingTransaction: pendingTransactionsList,
     postedTransaction: postedTransactionsList,
   ),
   Account(
-    accountType: 'Ultimate Cash Rewards',
+    accountType: 'Ultimate Cash',
     acctNumber: 8719,
-    balance: 628.17,
+    balance: '628.17',
     isCredit: true,
     pendingTransaction: pendingTransactionsList,
     postedTransaction: postedTransactionsList,
   ),
   Account(
-    accountType: 'Travel Rewards',
+    accountType: 'Platinum Card',
     acctNumber: 1946,
-    balance: 973.43,
+    balance: '973.43',
     isCredit: true,
     pendingTransaction: pendingTransactionsList,
     postedTransaction: postedTransactionsList,
@@ -65,7 +58,7 @@ List accountsList = [
   Account(
     accountType: 'Investments',
     acctNumber: 4937,
-    balance: 36715.49,
+    balance: '36,715.49',
     isCredit: false,
     pendingTransaction: pendingTransactionsList,
     postedTransaction: postedTransactionsList,
@@ -73,7 +66,7 @@ List accountsList = [
   Account(
     accountType: 'Home',
     acctNumber: 3761,
-    balance: 127465.1,
+    balance: '127,465.1',
     isCredit: false,
     pendingTransaction: pendingTransactionsList,
     postedTransaction: postedTransactionsList,

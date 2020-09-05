@@ -67,14 +67,13 @@ class ContactlessPayment extends StatelessWidget {
             ],
           ),
         ),
-        Padding(
-          padding: EdgeInsets.only(bottom: 25),
-          child: Icon(
-            Icons.fingerprint,
-            color: kPrimaryColor,
-            size: size.width * 0.2,
-          ),
+        Icon(
+          Icons.fingerprint,
+          color: kPrimaryColor,
+          size: size.width * 0.2,
         ),
+        Text('Use Fingerprint to Pay'),
+        SizedBox(height: 1),
       ],
     );
   }

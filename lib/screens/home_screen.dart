@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 140,
+                    top: 135,
                     right: 0,
                     child: Text(
                       'Total Balance',
@@ -127,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 155,
+                    top: 150,
                     right: 0,
                     child: Text(
                       '\$28,386.20',
@@ -164,7 +164,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           acctNumber: accountsList[index].acctNumber,
                           balance: accountsList[index].balance,
                           onPress: () {
-                            print('ACCESSED!!!!!!!');
                             Navigator.push(
                               context,
                               MaterialPageRoute(

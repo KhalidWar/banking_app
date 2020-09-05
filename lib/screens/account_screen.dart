@@ -20,7 +20,7 @@ class AccountScreen extends StatefulWidget {
   });
   final String accountType;
   final int acctNumber;
-  final double balance;
+  final String balance;
   final int index;
 }
 
