@@ -1,5 +1,7 @@
 import 'package:banking/constants.dart';
 import 'package:banking/dummy_data/accounts_list.dart';
+import 'package:banking/dummy_data/bitcoin_offer.dart';
+import 'package:banking/dummy_data/mastercard_offer.dart';
 import 'package:banking/widgets/account_details_card.dart';
 import 'package:banking/widgets/pending_posted_widget.dart';
 import 'package:banking/widgets/statement_search_widget.dart';
@@ -69,6 +71,8 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    bool isCredit = accountsList[widget.index].isCredit;
+
     return Scaffold(
       backgroundColor: kSecondaryColor,
       appBar: buildAppBar(context),
@@ -127,27 +131,19 @@ class _AccountScreenState extends State<AccountScreen> {
               shrinkWrap: true,
               children: [
                 PendingPostedWidget(
-                  label: 'Balance',
+                  label: 'Offers & Promotions',
                   showAllTransactions: false,
                 ),
                 Container(
                   width: size.width * 0.85,
-                  height: size.height * 0.05,
+                  height: size.height * 0.12,
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                   margin: EdgeInsets.symmetric(horizontal: 30, vertical: 4),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: kPrimaryColor,
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          //todo add balances widget
-                        ],
-                      )
-                    ],
-                  ),
+                  child: isCredit ? MastercardOffer() : BitcoinOffer(),
                 ),
                 SizedBox(height: 10),
                 PendingPostedWidget(
