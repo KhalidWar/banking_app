@@ -1,13 +1,26 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../constants.dart';
+import 'carousel_card.dart';
 
-class ContactlessPayment extends StatelessWidget {
+class ContactlessPayment extends StatefulWidget {
   const ContactlessPayment({
     Key key,
   }) : super(key: key);
+
+  @override
+  _ContactlessPaymentState createState() => _ContactlessPaymentState();
+}
+
+class _ContactlessPaymentState extends State<ContactlessPayment> {
+  bool showNumbers = false;
+
+  void showCardNumbers() {
+    setState(() {
+      showNumbers = !showNumbers;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,37 +36,52 @@ class ContactlessPayment extends StatelessWidget {
               color: Colors.grey[600],
               borderRadius: BorderRadius.all(Radius.circular(20))),
         ),
-        CarouselSlider(
-          options: CarouselOptions(
-            height: size.height * 0.25,
-            enlargeCenterPage: true,
+        InkWell(
+          onTap: showCardNumbers,
+          child: CarouselSlider(
+            options: CarouselOptions(
+              height: size.height * 0.25,
+              enlargeCenterPage: true,
+            ),
+            items: [
+              CarouselCard(
+                cardNumber:
+                    showNumbers ? '4243 1672 8946 1834' : '**** **** **** 1834',
+                expirationDate: '05/25',
+                ccv: '862',
+                cardOwner: 'Khalid War',
+                cardIssuer: 'lib/dummy_data/icons/visa.svg',
+                cardColor: kPrimaryColor,
+              ),
+              CarouselCard(
+                cardNumber:
+                    showNumbers ? '5519 6733 1475 3195' : '**** **** **** 3195',
+                expirationDate: '10/26',
+                ccv: '285',
+                cardOwner: 'Khalid War',
+                cardIssuer: 'lib/dummy_data/icons/mastercard2.svg',
+                cardColor: Colors.red.shade900,
+              ),
+              CarouselCard(
+                cardNumber:
+                    showNumbers ? '4243 5577 4682 1736' : '**** **** **** 1736',
+                expirationDate: '03/22',
+                ccv: '791',
+                cardOwner: 'Khalid War',
+                cardIssuer: 'lib/dummy_data/icons/visa.svg',
+                cardColor: Colors.black,
+              ),
+              CarouselCard(
+                cardNumber:
+                    showNumbers ? '5519 8216 7837 8349' : '**** **** **** 8349',
+                expirationDate: '11/20',
+                ccv: '461',
+                cardOwner: 'Khalid War',
+                cardIssuer: 'lib/dummy_data/icons/mastercard2.svg',
+                cardColor: Colors.green.shade900,
+              ),
+            ],
           ),
-          items: [
-            CarouselCard(
-              cardNumber: '1834',
-              cardOwner: 'Khalid War',
-              cardIssuer: 'lib/dummy_data/icons/visa.svg',
-              cardColor: kPrimaryColor,
-            ),
-            CarouselCard(
-              cardNumber: '3195',
-              cardOwner: 'Khalid War',
-              cardIssuer: 'lib/dummy_data/icons/mastercard2.svg',
-              cardColor: Colors.red,
-            ),
-            CarouselCard(
-              cardNumber: '1736',
-              cardOwner: 'Khalid War',
-              cardIssuer: 'lib/dummy_data/icons/visa.svg',
-              cardColor: Colors.black,
-            ),
-            CarouselCard(
-              cardNumber: '8349',
-              cardOwner: 'Khalid War',
-              cardIssuer: 'lib/dummy_data/icons/mastercard2.svg',
-              cardColor: Colors.green,
-            ),
-          ],
         ),
         Icon(
           Icons.fingerprint,
@@ -63,71 +91,6 @@ class ContactlessPayment extends StatelessWidget {
         Text('Use Fingerprint to Pay'),
         SizedBox(height: 1),
       ],
-    );
-  }
-}
-
-class CarouselCard extends StatelessWidget {
-  const CarouselCard({
-    Key key,
-    this.cardNumber,
-    this.cardOwner,
-    this.cardIssuer,
-    this.cardColor,
-  }) : super(key: key);
-
-  final String cardNumber;
-  final String cardOwner;
-  final String cardIssuer;
-  final Color cardColor;
-
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      width: size.width * 0.8,
-      padding: EdgeInsets.all(size.width * 0.02),
-      decoration: BoxDecoration(
-        color: cardColor,
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Icon(Icons.account_balance,
-                  color: Colors.white, size: size.width * 0.16),
-            ],
-          ),
-          Text(
-            '**** **** **** $cardNumber',
-            style: Theme.of(context)
-                .textTheme
-                .headline5
-                .copyWith(color: Colors.white),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                cardOwner,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5
-                    .copyWith(color: Colors.white),
-              ),
-              SvgPicture.asset(
-                cardIssuer,
-                width: size.width * 0.12,
-                color: Colors.white,
-              ),
-            ],
-          ),
-        ],
-      ),
     );
   }
 }
