@@ -9,6 +9,7 @@ A beautifully designed banking app with login screen, home screen with total bal
 - [Google Fonts](https://pub.dev/packages/google_fonts)
 - [Flutter SVG](https://pub.dev/packages/flutter_svg)
 - [Animations](https://pub.dev/packages/animations)
+- [Carousel Slider](https://pub.dev/packages/carousel_slider)
 
 
 ## Installation
@@ -29,3 +30,7 @@ Check out [Flutter's official guide](https://flutter.dev/docs/get-started/instal
 
 ## License
 This project is licensed under [MIT Licnese](https://github.com/KhalidWar/banking_app/blob/master/LICENSE).
+
+
+## Credit
+- SVG images in this project have been obtained from [Simple Icons](https://simpleicons.org/)
