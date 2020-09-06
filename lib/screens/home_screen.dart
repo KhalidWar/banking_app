@@ -104,16 +104,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 0,
+                    bottom: 0,
                     right: 0,
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.email,
-                        color: Colors.white,
-                        size: 35,
-                      ),
-                      onPressed: () {},
-                    ),
+                    child: ProfileIconButton(),
                   ),
                   Positioned(
                     top: 135,
@@ -223,7 +216,10 @@ class _HomeScreenState extends State<HomeScreen> {
       //todo fix home screen stacking on top of login screen AKA remove backButton
       leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
       actions: [
-        ProfileIconButton(),
+        IconButton(
+          icon: Icon(Icons.email, color: Colors.white),
+          onPressed: () {},
+        ),
       ],
     );
   }

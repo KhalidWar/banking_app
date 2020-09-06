@@ -38,7 +38,7 @@ class ContactlessPayment extends StatelessWidget {
             CarouselCard(
               cardNumber: '3195',
               cardOwner: 'Khalid War',
-              cardIssuer: 'lib/dummy_data/icons/visa.svg',
+              cardIssuer: 'lib/dummy_data/icons/mastercard2.svg',
               cardColor: Colors.red,
             ),
             CarouselCard(
@@ -50,7 +50,7 @@ class ContactlessPayment extends StatelessWidget {
             CarouselCard(
               cardNumber: '8349',
               cardOwner: 'Khalid War',
-              cardIssuer: 'lib/dummy_data/icons/visa.svg',
+              cardIssuer: 'lib/dummy_data/icons/mastercard2.svg',
               cardColor: Colors.green,
             ),
           ],

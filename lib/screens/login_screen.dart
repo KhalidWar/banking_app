@@ -3,12 +3,12 @@ import 'package:banking/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoadingScreen extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   @override
-  _LoadingScreenState createState() => _LoadingScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoadingScreenState extends State<LoadingScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   bool isBiometric = false;
 
   @override

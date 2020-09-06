@@ -123,7 +123,7 @@ class _AccountScreenState extends State<AccountScreen> {
               ],
             ),
           ),
-          SizedBox(height: size.height / 30),
+          SizedBox(height: size.height / 25),
           Container(
             height: size.height * 0.66,
             child: ListView(
@@ -143,7 +143,10 @@ class _AccountScreenState extends State<AccountScreen> {
                     color: kPrimaryColor,
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
-                  child: isCredit ? MastercardOffer() : BitcoinOffer(),
+                  child: GestureDetector(
+                    child: isCredit ? MastercardOffer() : BitcoinOffer(),
+                    onTap: () {},
+                  ),
                 ),
                 SizedBox(height: 10),
                 PendingPostedWidget(

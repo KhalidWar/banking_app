@@ -19,8 +19,6 @@ class ProfileIconButton extends StatelessWidget {
       },
       child: Container(
         width: size.width * 0.1,
-        padding: EdgeInsets.only(right: 10),
-        decoration: BoxDecoration(),
         child: SvgPicture.asset('lib/dummy_data/icons/profile_pic.svg'),
       ),
     );

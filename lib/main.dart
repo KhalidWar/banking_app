@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Nunito',
       ),
-      home: LoadingScreen(),
+      home: LoginScreen(),
     );
   }
 }

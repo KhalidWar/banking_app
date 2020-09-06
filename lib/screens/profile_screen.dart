@@ -5,6 +5,8 @@ import 'package:banking/widgets/settings_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'login_screen.dart';
+
 class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -87,9 +89,6 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       actions: [
                         FlatButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
                           child: Text(
                             'Yes',
                             style: Theme.of(context)
@@ -99,11 +98,16 @@ class ProfileScreen extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.red),
                           ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginScreen(),
+                              ),
+                            );
+                          },
                         ),
                         FlatButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
                           child: Text(
                             'No',
                             style: Theme.of(context)
@@ -113,6 +117,9 @@ class ProfileScreen extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                     color: kPrimaryColor),
                           ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                         ),
                       ],
                     );
