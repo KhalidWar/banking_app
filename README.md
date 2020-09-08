@@ -2,7 +2,7 @@
 A beautifully designed banking app with login screen, home screen with total balance and accounts overview, and detailed individual account with pending and posted transactions. This app is built using [Flutter](https://flutter.dev) framework.
 
 ## Screenshots
-<img src="assets/screenshots/banking.gif" width="150">
+<img src="assets/README/banking.gif" width="150"> <img src="assets/README/login_screen.jpg" width="150"> <img src="assets/README/home_screen.jpg" width="150"> <img src="assets/README/account_screen.jpg" width="150"> <img src="assets/README/contactless.jpg" width="150"> <img src="assets/README/profile_setting.jpg" width="150">
 
 ## Packages used
 - [Font Awesome Icons](https://pub.dev/packages/font_awesome_flutter)
