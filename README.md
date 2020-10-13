@@ -1,4 +1,4 @@
-# Banking App [UNDER CONSTRUCTION]
+# Banking App
 A beautifully designed banking app with login screen, home screen with total balance and accounts overview, and detailed individual account with pending and posted transactions. This app is built using [Flutter](https://flutter.dev) framework.
 
 ## Screenshots
