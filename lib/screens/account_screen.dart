@@ -31,27 +31,27 @@ class _AccountScreenState extends State<AccountScreen> {
 
   ScrollController _scrollController = ScrollController();
 
-  void showFAB() {
+  void _showFAB() {
     setState(() {
       _show = true;
     });
   }
 
-  void hideFAB() {
+  void _hideFAB() {
     setState(() {
       _show = false;
     });
   }
 
-  void handleScroll() async {
+  void _handleScroll() async {
     _scrollController.addListener(() {
       if (_scrollController.position.userScrollDirection ==
           ScrollDirection.reverse) {
-        hideFAB();
+        _hideFAB();
       }
       if (_scrollController.position.userScrollDirection ==
           ScrollDirection.forward) {
-        showFAB();
+        _showFAB();
       }
     });
   }
@@ -59,7 +59,7 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   void initState() {
     super.initState();
-    handleScroll();
+    _handleScroll();
   }
 
   @override
@@ -97,7 +97,8 @@ class _AccountScreenState extends State<AccountScreen> {
                   bottomRight: Radius.circular(35)),
             ),
             child: Stack(
-              overflow: Overflow.visible,
+              // overflow: Overflow.visible,
+              clipBehavior: Clip.none,
               children: [
                 AccountDetailsCard(widget: widget),
                 Positioned(
@@ -124,8 +125,7 @@ class _AccountScreenState extends State<AccountScreen> {
             ),
           ),
           SizedBox(height: size.height / 25),
-          Container(
-            height: size.height * 0.66,
+          Expanded(
             child: ListView(
               controller: _scrollController,
               shrinkWrap: true,

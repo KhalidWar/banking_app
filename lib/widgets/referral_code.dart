@@ -8,7 +8,7 @@ class ReferralCode extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Container(
       height: size.height * 0.05,
-      width: size.width * 0.85,
+      margin: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: kPrimaryColor,
         borderRadius: BorderRadius.all(Radius.circular(15)),
