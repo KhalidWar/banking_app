@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
       title: 'Banking',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-//        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         fontFamily: 'Nunito',
       ),
